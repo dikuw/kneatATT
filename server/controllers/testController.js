@@ -17,7 +17,7 @@ exports.testRunner = async (tenant, username, password) => {
   try {
 
     await page.waitForTimeout(2000);
-    console.log('username', username);
+
     await login(page, username, password);
 
   } catch (err) {

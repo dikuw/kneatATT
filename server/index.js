@@ -15,5 +15,4 @@ const server = app.listen(app.get('port'), () => {
   console.log(`Express running on port ${server.address().port}`);
 });
 
-console.log('username1', process.env.USERNAME)
 testRunner(process.env.TENANT, process.env.USERNAME, process.env.PASSWORD);
