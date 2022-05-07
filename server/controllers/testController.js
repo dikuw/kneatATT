@@ -10,6 +10,20 @@ exports.testRunner = async () => {
 
   const page = await browser.newPage();
 
-  await page.goto(testTenant);
+  await page.goto(process.env.TENANT);
+
+  try {
+
+    await page.waitForTimeout(2000);
+
+  } catch (err) {
+
+    console.log(`oops there was an error: ${err}`);
+
+  } finally {
+
+    await browser.close();
+
+  }
 
 }
