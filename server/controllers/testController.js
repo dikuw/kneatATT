@@ -1,6 +1,8 @@
 const puppeteer = require('puppeteer');
 
-exports.testRunner = async () => {
+const { login } = require('../shared/shared');
+
+exports.testRunner = async (tenant, username, password) => {
 
   const browser = await puppeteer.launch({
     headless: false,
@@ -10,11 +12,13 @@ exports.testRunner = async () => {
 
   const page = await browser.newPage();
 
-  await page.goto(process.env.TENANT);
+  await page.goto(tenant);
 
   try {
 
     await page.waitForTimeout(2000);
+    console.log('username', username);
+    await login(page, username, password);
 
   } catch (err) {
 
@@ -22,7 +26,7 @@ exports.testRunner = async () => {
 
   } finally {
 
-    await browser.close();
+    // await browser.close();
 
   }
 
