@@ -1,6 +1,6 @@
 Automated Testing Tool
 
-A simple applciation for verifying Kneat configuration.
+A simple applciation for verifying Kneat configurations.
 
 Node.js Express server
 
