@@ -1,6 +1,7 @@
 const puppeteer = require('puppeteer');
 
 const { login, gotoWorkspace, gotoDocumentTemplates, selectDiscipline, gotoApprovalTemplates, gotoApprovalTemplate, takeScreenshot } = require('../shared/shared');
+const { createDoc } = require('../shared/createOutput');
 
 exports.testRunner = async (tenant, username, password) => {
 
@@ -34,6 +35,8 @@ exports.testRunner = async (tenant, username, password) => {
   } finally {
 
     // await browser.close();
+
+    createDoc();
 
   }
 
