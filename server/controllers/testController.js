@@ -33,7 +33,7 @@ exports.testRunner = async (tenant, username, password) => {
 
   } finally {
 
-    // await browser.close();
+    await browser.close();
 
     createDoc();
     console.log('🟢🟢 done 🟢🟢');
