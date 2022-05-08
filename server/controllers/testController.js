@@ -1,6 +1,6 @@
 const puppeteer = require('puppeteer');
 
-const { login, gotoDocumentTemplates } = require('../shared/shared');
+const { login, gotoWorkspace, gotoDocumentTemplates } = require('../shared/shared');
 
 exports.testRunner = async (tenant, username, password) => {
 
@@ -19,6 +19,7 @@ exports.testRunner = async (tenant, username, password) => {
     await page.waitForTimeout(2000);
 
     await login(page, username, password);
+    await gotoWorkspace(page, "Template Approvals");
     await gotoDocumentTemplates(page);
 
   } catch (err) {
