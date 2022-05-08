@@ -1,6 +1,6 @@
 const puppeteer = require('puppeteer');
 
-const { login, gotoWorkspace, gotoDocumentTemplates } = require('../shared/shared');
+const { login, gotoWorkspace, gotoDocumentTemplates, selectDiscipline, gotoApprovalTemplates, gotoApprovalTemplate } = require('../shared/shared');
 
 exports.testRunner = async (tenant, username, password) => {
 
@@ -21,10 +21,14 @@ exports.testRunner = async (tenant, username, password) => {
     await login(page, username, password);
     await gotoWorkspace(page, "Template Approvals");
     await gotoDocumentTemplates(page);
+    await selectDiscipline(page, "CQV");
+    await gotoApprovalTemplates(page);
+    await gotoApprovalTemplate(page);
+    console.log('🟢🟢 done 🟢🟢');
 
   } catch (err) {
 
-    console.log(`oops there was an error: ${err}`);
+    console.log(`🛑🛑 oops there was an error: ${err} 🛑🛑`);
 
   } finally {
 
