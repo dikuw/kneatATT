@@ -26,7 +26,6 @@ exports.testRunner = async (tenant, username, password) => {
     await gotoApprovalTemplates(page);
     await gotoApprovalTemplate(page);
     await takeScreenshot(page);
-    console.log('🟢🟢 done 🟢🟢');
 
   } catch (err) {
 
@@ -37,6 +36,7 @@ exports.testRunner = async (tenant, username, password) => {
     // await browser.close();
 
     createDoc();
+    console.log('🟢🟢 done 🟢🟢');
 
   }
 

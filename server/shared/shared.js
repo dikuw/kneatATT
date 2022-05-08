@@ -25,7 +25,7 @@ exports.gotoDocumentTemplates = async (page) => {
 }
 
 exports.selectDiscipline = async (page, discipline) => {
-  console.log(`⚗️ selecting discipline ${discipline}...`);
+  console.log(`⚗️  selecting discipline ${discipline}...`);
   await page.waitForTimeout(2000);
   await page.waitForSelector('[data-automationid="docTempsDisciplineSelect"]');
   await page.click('[data-automationid="docTempsDisciplineSelect"]');
@@ -54,4 +54,5 @@ exports.gotoApprovalTemplate = async (page) => {
 exports.takeScreenshot = async (page) => {
   console.log('📸 taking screenshot...');
   await page.screenshot({ path: `./tests/screenshots/screenshot.png`});
+  await page.waitForTimeout(2000);
 }

@@ -4,11 +4,10 @@ const { Document, Packer, Table, TableRow, TableCell, Paragraph, TextRun, ImageR
 exports.createDoc = () => {
 
   const resultsRows = [];
-  let rows;
 
   resultsRows.push(
     new TableRow({
-      chidren: [
+      children: [
         new TableCell({
           children: [
             new Paragraph({
@@ -82,7 +81,7 @@ exports.createDoc = () => {
             new Paragraph({
               children: [
                 new ImageRun({
-                  data: fs.readFileSync(`/tests/screenshots/screenshot.png`),
+                  data: fs.readFileSync(`./tests/screenshots/screenshot.png`),
                   transformation: {
                     width: 710,
                     height: 346,
@@ -134,7 +133,7 @@ exports.createDoc = () => {
           new Paragraph({
             children: [
               new TextRun({
-                text: "Acceptance critiera: the configured Document Template Approval Template(s) match that document in the PMD.",
+                text: "Acceptance criteria: the configured Document Template Approval Template(s) match that documented in the PMD.",
                 font: "Arial",
                 size: 18,
               }),
@@ -164,7 +163,7 @@ exports.createDoc = () => {
                 size: 18,
               }),
             ],
-            intent: { left: 100 },
+            indent: { left: 100 },
             spacing: {
               before: 40,
               after: 40,
@@ -177,7 +176,8 @@ exports.createDoc = () => {
     tableHeader: true,
   });
 
-  rows = [ headerRow1, headerRow2, headerRow3, ...resultsRows ];
+  let rows = [ headerRow1, headerRow2, headerRow3, ...resultsRows ];
+  rows = [ headerRow1, headerRow2, headerRow3, resultsRows[1] ];
 
   const table = new Table({
     width: {
