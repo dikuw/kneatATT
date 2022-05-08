@@ -1,3 +1,5 @@
+const exp = require("constants");
+
 exports.login = async (page, username, password) => {
   await page.waitForSelector('#username');
   await page.type('#username', 'Michael.Vasilevsky');
@@ -23,7 +25,7 @@ exports.gotoDocumentTemplates = async (page) => {
 }
 
 exports.selectDiscipline = async (page, discipline) => {
-  console.log(`🏛️ selecting discipline ${discipline}...`);
+  console.log(`⚗️ selecting discipline ${discipline}...`);
   await page.waitForTimeout(2000);
   await page.waitForSelector('[data-automationid="docTempsDisciplineSelect"]');
   await page.click('[data-automationid="docTempsDisciplineSelect"]');
@@ -47,4 +49,9 @@ exports.gotoApprovalTemplate = async (page) => {
   await page.waitForTimeout(2000);
   await page.waitForSelector('.KneatGridExpandControl');
   await page.click('.KneatGridExpandControl');
+}
+
+exports.takeScreenshot = async (page) => {
+  console.log('📸 taking screenshot...');
+  await page.screenshot({ path: `./tests/screenshots/screenshot.png`});
 }

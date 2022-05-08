@@ -1,6 +1,6 @@
 const puppeteer = require('puppeteer');
 
-const { login, gotoWorkspace, gotoDocumentTemplates, selectDiscipline, gotoApprovalTemplates, gotoApprovalTemplate } = require('../shared/shared');
+const { login, gotoWorkspace, gotoDocumentTemplates, selectDiscipline, gotoApprovalTemplates, gotoApprovalTemplate, takeScreenshot } = require('../shared/shared');
 
 exports.testRunner = async (tenant, username, password) => {
 
@@ -24,6 +24,7 @@ exports.testRunner = async (tenant, username, password) => {
     await selectDiscipline(page, "CQV");
     await gotoApprovalTemplates(page);
     await gotoApprovalTemplate(page);
+    await takeScreenshot(page);
     console.log('🟢🟢 done 🟢🟢');
 
   } catch (err) {
