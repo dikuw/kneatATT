@@ -19,57 +19,59 @@ exports.createDoc = () => {
                 }),
               ],
               alignment: AlignmentType.CENTER,
-            }),
-            new TableCell({
-              children: [
-                new Paragraph({
-                  children: [
-                    new TextRun({
-                      text: "Stage 1 Signature Capacity is 'Author'",
-                      font: "Arial",
-                      size: 18,
-                    }),
-                  ],
-                  indent: { left: 100 },
-                }),
-              ],
-              verticalAlign: VerticalAlign.CENTER,
-            }),
-            new TableCell({
-              children: [
-                new Paragraph({
-                  children: [
-                    new TextRun({
-                      text: "Stage 1 Signature Capacity is 'Author'",
-                      font: "Arial",
-                      size: 18,
-                    }),
-                  ],
-                  verticalAlign: VerticalAlign.CENTER,
-                }),
-                new TableCell({
-                  children: [
-                    new Paragraph({
-                      children: [
-                        new TextRun({
-                          text: "test passed",
-                          font: "Arial",
-                          size: 18,
-                          italics: true,
-                          highlight: "green",
-                        }),
-                      ],
-                      alignment: AlignmentType.CENTER,
-                    }),
-                  ],
-                  verticalAlign: VerticalAlign.CENTER,
-                }),
-              ],
-              cantSplit: true,
-            }),
+            })
           ],
+          verticalAlign: VerticalAlign.CENTER,
+        }),
+        new TableCell({
+          children: [
+            new Paragraph({
+              children: [
+                new TextRun({
+                  text: "Actual configuration matches the expected.",
+                  font: "Arial",
+                  size: 18,
+                }),
+              ],
+              indent: { left: 100 }, 
+            })
+          ],
+          verticalAlign: VerticalAlign.CENTER,
+        }),
+        new TableCell({
+          children: [
+            new Paragraph({
+              children: [
+                new TextRun({
+                  text: "Actual configuration matches the expected.",
+                  font: "Arial",
+                  size: 18,
+                }),
+              ],
+              indent: { left: 100 }, 
+            })
+          ],
+          verticalAlign: VerticalAlign.CENTER,
+        }),
+        new TableCell({
+          children: [
+            new Paragraph({
+              children: [
+                new TextRun({
+                  text: "test passed" ,
+                  font: "Arial",
+                  size: 18,
+                  italics: true,
+                  highlight: "green",
+                }),
+              ],
+              alignment: AlignmentType.CENTER,
+            })
+          ],
+          verticalAlign: VerticalAlign.CENTER,
         }),
       ],
+      cantSplit: true,
     }),
   );
 
@@ -176,8 +178,97 @@ exports.createDoc = () => {
     tableHeader: true,
   });
 
-  let rows = [ headerRow1, headerRow2, headerRow3, ...resultsRows ];
-  rows = [ headerRow1, headerRow2, headerRow3, resultsRows[1] ];
+  const headerRow4 = new TableRow({
+    children: [
+      new TableCell({
+        width: {
+          size: 400,
+          type: WidthType.DXA,
+        },
+        children: [
+          new Paragraph({
+            children: [
+              new TextRun({
+                text: "#",
+                bold: true,
+                font: "Arial",
+                size: 18,
+              }),
+            ],
+            spacing: {
+              before: 40,
+              after: 40,
+            },
+            alignment: AlignmentType.CENTER,
+          })
+        ],
+        verticalAlign: VerticalAlign.CENTER,
+        shading: {
+          fill: "CBE5DA",
+        },
+      }),
+      new TableCell({
+        children: [
+          new Paragraph({
+            children: [
+              new TextRun({
+                text: "Expected",
+                bold: true,
+                font: "Arial",
+                size: 18,
+              }),
+            ],
+            alignment: AlignmentType.CENTER,
+          })
+        ],
+        verticalAlign: VerticalAlign.CENTER,
+        shading: {
+          fill: "CBE5DA",
+        },
+      }),
+      new TableCell({
+        children: [
+          new Paragraph({
+            children: [
+              new TextRun({
+                text: "Actual",
+                bold: true,
+                font: "Arial",
+                size: 18,
+              }),
+            ],
+            alignment: AlignmentType.CENTER,
+          })
+        ],
+        verticalAlign: VerticalAlign.CENTER,
+        shading: {
+          fill: "CBE5DA",
+        },
+      }),
+      new TableCell({
+        children: [
+          new Paragraph({
+            children: [
+              new TextRun({
+                text: "Result",
+                bold: true,
+                font: "Arial",
+                size: 18,
+              }),
+            ],
+            alignment: AlignmentType.CENTER,
+          })
+        ],
+        verticalAlign: VerticalAlign.CENTER,
+        shading: {
+          fill: "CBE5DA",
+        },
+      }),
+    ],
+    tableHeader: true,
+  });
+
+  let rows = [ headerRow1, headerRow2, headerRow3, headerRow4, ...resultsRows ];
 
   const table = new Table({
     width: {
