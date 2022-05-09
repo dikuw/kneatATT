@@ -43,7 +43,7 @@ exports.createDoc = () => {
             new Paragraph({
               children: [
                 new TextRun({
-                  text: "Actual configuration matches the expected.",
+                  text: "Actual configuration does match the expected.",
                   font: "Arial",
                   size: 18,
                 }),
